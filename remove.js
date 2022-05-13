@@ -1,10 +1,18 @@
 const { devDependencies, dependencies } = require("./package.json");
 const { exec } = require("child_process");
 
-const devs = Object.keys(devDependencies);
-const deps = Object.keys(dependencies);
+let devDeps = [];
+if (devDependencies) {
+  devDeps = Object.keys(devDependencies);
+}
 
-const dep = [...deps, ...devs];
+let deps = [];
+
+if (dependencies) {
+  deps = Object.keys(dependencies);
+}
+
+const dep = [...deps, ...devDeps];
 
 console.log(dep);
 
